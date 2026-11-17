@@ -757,10 +757,10 @@ Sirve el build de producción en `http://localhost:4173`.
 
 ## 19. Repositorios
 
-| Componente | Repositorio |
-|---|---|
-| **Backend** (Spring Boot) | [MiguelAngelDominguez/quedate-backend](https://github.com/MiguelAngelDominguez/quedate-backend) |
-| **Frontend Web** (React) | [MiguelAngelDominguez/quedate-frontend](https://github.com/MiguelAngelDominguez/quedate-frontend) |
+| Componente | Repositorio | Deploy |
+|---|---|---|
+| **Backend** (Spring Boot) | [MiguelAngelDominguez/quedate-backend](https://github.com/MiguelAngelDominguez/quedate-backend) | https://quedate-backend.onrender.com |
+| **Frontend Web** (React) | [MiguelAngelDominguez/quedate-frontend](https://github.com/MiguelAngelDominguez/quedate-frontend) | https://quedate-frontend.vercel.app |
 
 ---
 
