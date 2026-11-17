@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 48" fill="none" role="img" aria-label="Quédate">
+  <!-- Techo triangular sin base (coral, encima de la Q) -->
+  <path d="M6 12 L22 2 L38 12" stroke="#ea580c" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Wordmark "Quédate" como texto (Space Grotesk) -->
+  <text x="0" y="44" font-family="Space Grotesk, sans-serif" font-size="36" font-weight="700" letter-spacing="-0.5">
+    <tspan fill="currentColor">Qué</tspan>
+    <tspan fill="#0d9488">date</tspan>
+  </text>
+</svg>
