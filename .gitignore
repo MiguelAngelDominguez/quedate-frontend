@@ -31,3 +31,5 @@ src/App.css
 *.njsproj
 *.sln
 *.sw?
+
+.vercel
