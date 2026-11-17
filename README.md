@@ -716,15 +716,15 @@ npm run preview
 
 Sirve el build de producción en `http://localhost:4173`.
 
-### 16.3 Deployment (pendiente)
+### 16.3 Deployment
 
-| Plataforma | Estado | Notas |
-|---|---|---|
-| Vercel | Pendiente | Conectar repo GitHub, configurar `VITE_API_BASE_URL`. |
-| Netlify | Alternativa | Build command: `npm run build`, publish dir: `dist`. |
+| Componente | URL | Estado | Plataforma |
+|---|---|---|---|
+| Frontend Web | https://quedate-frontend.vercel.app | ✅ Desplegado | Vercel |
+| Backend (API) | https://quedate-backend.onrender.com | ✅ Desplegado | Render |
 
 **Variables de entorno en producción:**
-- `VITE_API_BASE_URL`: URL del backend desplegado (ej. `https://api.quedate.com/api/v1`).
+- `VITE_API_BASE_URL`: `https://quedate-backend.onrender.com/api/v1`
 - `VITE_GOOGLE_MAPS_API_KEY`: API key de Google Maps (opcional).
 
 **Nota sobre Vercel:** cada `git push` a la rama conectada genera un nuevo deploy automáticamente. El link se mantiene igual.
