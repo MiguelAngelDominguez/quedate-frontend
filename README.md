@@ -25,8 +25,7 @@ Aplicación web que consume la API REST del backend de Quédate para permitir a 
 | Componente | Repositorio |
 |---|---|
 | **Backend** (Spring Boot) | [MiguelAngelDominguez/quedate-backend](https://github.com/MiguelAngelDominguez/quedate-backend) |
-
-> *El enlace del repositorio frontend y del deployment se agregarán posteriormente.*
+| **Frontend Web** (React) | [MiguelAngelDominguez/quedate-frontend](https://github.com/MiguelAngelDominguez/quedate-frontend) |
 
 ---
 
