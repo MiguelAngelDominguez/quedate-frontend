@@ -9,23 +9,23 @@ Frontend web de la plataforma **Quédate** (CS2031 — Desarrollo Basado en Plat
 ## Tabla de contenidos
 
 1. [Descripción del proyecto](#1-descripción-del-proyecto)
-2. [Problema y solución](#2-problema-y-solución)
-3. [Objetivos y alcance](#3-objetivos-y-alcance)
-4. [Arquitectura del frontend](#4-arquitectura-del-frontend)
-5. [Stack tecnológico](#5-stack-tecnológico)
-6. [Diseño y sistema visual](#6-diseño-y-sistema-visual)
-7. [Módulos y páginas](#7-módulos-y-páginas)
-8. [Componentes reutilizables](#8-componentes-reutilizables)
-9. [Servicios y comunicación con la API](#9-servicios-y-comunicación-con-la-api)
-10. [Estado y gestión de datos](#10-estado-y-gestión-de-datos)
-11. [Autenticación y seguridad](#11-autenticación-y-seguridad)
-12. [Mapas e integración externa](#12-mapas-e-integración-externa)
-13. [Testing](#13-testing)
-14. [Estructura de carpetas](#14-estructura-de-carpetas)
-15. [Ejecución y desarrollo local](#15-ejecución-y-desarrollo-local)
-16. [Build y deployment](#16-build-y-deployment)
-17. [Verificación y calidad](#17-verificación-y-calidad)
-18. [Integrantes y participación](#18-integrantes-y-participación)
+2. [Integrantes y participación](#2-integrantes-y-participación)
+3. [Problema y solución](#3-problema-y-solución)
+4. [Objetivos y alcance](#4-objetivos-y-alcance)
+5. [Arquitectura del frontend](#5-arquitectura-del-frontend)
+6. [Stack tecnológico](#6-stack-tecnológico)
+7. [Diseño y sistema visual](#7-diseño-y-sistema-visual)
+8. [Módulos y páginas](#8-módulos-y-páginas)
+9. [Componentes reutilizables](#9-componentes-reutilizables)
+10. [Servicios y comunicación con la API](#10-servicios-y-comunicación-con-la-api)
+11. [Estado y gestión de datos](#11-estado-y-gestión-de-datos)
+12. [Autenticación y seguridad](#12-autenticación-y-seguridad)
+13. [Mapas e integración externa](#13-mapas-e-integración-externa)
+14. [Testing](#14-testing)
+15. [Estructura de carpetas](#15-estructura-de-carpetas)
+16. [Ejecución y desarrollo local](#16-ejecución-y-desarrollo-local)
+17. [Build y deployment](#17-build-y-deployment)
+18. [Verificación y calidad](#18-verificación-y-calidad)
 19. [Repositorios](#19-repositorios)
 20. [Licencia](#20-licencia)
 
@@ -43,7 +43,19 @@ El frontend es la capa de presentación del sistema: una Single Page Application
 
 ---
 
-## 2. Problema y solución
+## 2. Integrantes y participación
+
+| Nombre | GitHub | Responsabilidad | Participación |
+|---|---|---|---|
+| Miguel Angel Dominguez Valentin | [@MiguelAngelDominguez](https://github.com/MiguelAngelDominguez) | Fundación, seguridad, autenticación, usuarios, configuración base, integración frontend-backend | 50% |
+| André Brando Mejía Vega | [@andremejia-hub](https://github.com/andremejia-hub) | Catálogo, habitaciones, ubicaciones, búsqueda, desarrollo y diseño del frontend web | 50% |
+| Iker Yazid García Tapia | [@iygt8-iterate](https://github.com/iygt8-iterate) | *Se retiró del curso* | 0% |
+
+> La suma de participaciones es 100%.
+
+---
+
+## 3. Problema y solución
 
 ### Problema
 Buscar alojamiento cerca de una universidad resulta complicado para un estudiante que no conoce la zona. Las ofertas suelen publicarse en medios generales o informales (redes sociales, grupos de WhatsApp), lo que genera:
@@ -70,7 +82,7 @@ Quédate centraliza la búsqueda y la interacción con el arrendador en una úni
 
 ---
 
-## 3. Objetivos y alcance
+## 4. Objetivos y alcance
 
 ### Objetivos
 - Ofrecer una experiencia de usuario fluida, responsive y accesible para buscar y gestionar alojamiento.
@@ -84,7 +96,7 @@ Quédate centraliza la búsqueda y la interacción con el arrendador en una úni
 
 ---
 
-## 4. Arquitectura del frontend
+## 5. Arquitectura del frontend
 
 ### 4.1 Patrón general
 
@@ -146,7 +158,7 @@ Quédate centraliza la búsqueda y la interacción con el arrendador en una úni
 
 ---
 
-## 5. Stack tecnológico
+## 6. Stack tecnológico
 
 ### Core
 
@@ -204,7 +216,7 @@ Quédate centraliza la búsqueda y la interacción con el arrendador en una úni
 
 ---
 
-## 6. Diseño y sistema visual
+## 7. Diseño y sistema visual
 
 ### 6.1 Paleta de colores
 
@@ -277,7 +289,7 @@ Quédate centraliza la búsqueda y la interacción con el arrendador en una úni
 
 ---
 
-## 7. Módulos y páginas
+## 8. Módulos y páginas
 
 ### 7.1 Tabla de páginas
 
@@ -371,7 +383,7 @@ Quédate centraliza la búsqueda y la interacción con el arrendador en una úni
 
 ---
 
-## 8. Componentes reutilizables
+## 9. Componentes reutilizables
 
 ### 8.1 UI (shadcn/ui — basados en Radix)
 
@@ -441,7 +453,7 @@ Quédate centraliza la búsqueda y la interacción con el arrendador en una úni
 
 ---
 
-## 9. Servicios y comunicación con la API
+## 10. Servicios y comunicación con la API
 
 ### 9.1 Cliente HTTP (`api.ts`)
 
@@ -475,7 +487,7 @@ Quédate centraliza la búsqueda y la interacción con el arrendador en una úni
 
 ---
 
-## 10. Estado y gestión de datos
+## 11. Estado y gestión de datos
 
 ### 10.1 Zustand (client state)
 
@@ -510,7 +522,7 @@ Quédate centraliza la búsqueda y la interacción con el arrendador en una úni
 
 ---
 
-## 11. Autenticación y seguridad
+## 12. Autenticación y seguridad
 
 ### 11.1 Flujo de autenticación
 
@@ -542,7 +554,7 @@ Quédate centraliza la búsqueda y la interacción con el arrendador en una úni
 
 ---
 
-## 12. Mapas e integración externa
+## 13. Mapas e integración externa
 
 ### 12.1 Leaflet (`RoomMap.tsx`)
 
@@ -559,7 +571,7 @@ Quédate centraliza la búsqueda y la interacción con el arrendador en una úni
 
 ---
 
-## 13. Testing
+## 14. Testing
 
 ### 13.1 Configuración
 
@@ -587,7 +599,7 @@ npm run test:ui       # UI interactiva de Vitest (si configurado)
 
 ---
 
-## 14. Estructura de carpetas
+## 15. Estructura de carpetas
 
 ```
 quedate-frontend/
@@ -633,7 +645,7 @@ quedate-frontend/
 
 ---
 
-## 15. Ejecución y desarrollo local
+## 16. Ejecución y desarrollo local
 
 ### 15.1 Requisitos
 
@@ -686,7 +698,7 @@ El servidor de desarrollo corre en `http://localhost:3000` con HMR (Hot Module R
 
 ---
 
-## 16. Build y deployment
+## 17. Build y deployment
 
 ### 16.1 Build de producción
 
@@ -719,7 +731,7 @@ Sirve el build de producción en `http://localhost:4173`.
 
 ---
 
-## 17. Verificación y calidad
+## 18. Verificación y calidad
 
 ### 17.1 Checks realizados
 
@@ -740,18 +752,6 @@ Sirve el build de producción en `http://localhost:4173`.
 - Dashboard arrendador (stats, gestión): ✅
 - Solicitudes y visitas: ✅
 - Verificaciones (admin): ✅
-
----
-
-## 18. Integrantes y participación
-
-| Nombre | GitHub | Responsabilidad | Participación |
-|---|---|---|---|
-| Miguel Angel Dominguez Valentin | [@MiguelAngelDominguez](https://github.com/MiguelAngelDominguez) | Fundación, seguridad, autenticación, usuarios, configuración base, integración frontend-backend | 50% |
-| André Brando Mejía Vega | [@andremejia-hub](https://github.com/andremejia-hub) | Catálogo, habitaciones, ubicaciones, búsqueda, desarrollo y diseño del frontend web | 50% |
-| Iker Yazid García Tapia | [@iygt8-iterate](https://github.com/iygt8-iterate) | *Se retiró del curso* | 0% |
-
-> La suma de participaciones es 100%.
 
 ---
 
