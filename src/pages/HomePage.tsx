@@ -248,7 +248,8 @@ export default function HomePage() {
             <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <Button
                 size="lg"
-                className="bg-white text-primary shadow-md hover:bg-primary/10 dark:bg-card dark:text-primary"
+                variant="ghost"
+                className="bg-white text-primary shadow-md hover:bg-primary/10 hover:text-primary dark:bg-card dark:text-primary dark:hover:text-primary"
                 onClick={() => navigate('/register')}
               >
                 Crear cuenta gratis
