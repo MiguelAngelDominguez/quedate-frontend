@@ -13,6 +13,30 @@ import { BackersMarquee } from '@/components/layout/BackersMarquee'
 import { cn } from '@/lib/utils'
 import type { UniversityDTO } from '@/types/api'
 
+function findUniversity(query: string, list: UniversityDTO[]): UniversityDTO | undefined {
+  const norm = (s?: string | null) => (s ?? '').toLowerCase().trim()
+  const needle = norm(query)
+  if (!needle) return undefined
+
+  let best: UniversityDTO | undefined
+  let bestScore = -1
+  for (const u of list) {
+    const fields = [u.name, u.campusName].map(norm)
+    let score = -1
+    for (const f of fields) {
+      if (!f) continue
+      if (f === needle) score = Math.max(score, 3)
+      else if (f.startsWith(needle)) score = Math.max(score, 2)
+      else if (f.includes(needle)) score = Math.max(score, 1)
+    }
+    if (score > bestScore) {
+      bestScore = score
+      best = u
+    }
+  }
+  return bestScore >= 1 ? best : undefined
+}
+
 export default function HomePage() {
   const navigate = useNavigate()
   const [query, setQuery] = useState('')
@@ -36,8 +60,13 @@ export default function HomePage() {
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault()
+    const q = query.trim()
     const params = new URLSearchParams()
-    if (query) params.set('district', query)
+    if (q) {
+      const match = findUniversity(q, universities)
+      if (match) params.set('universityId', String(match.id))
+      else params.set('district', q)
+    }
     navigate(`/rooms?${params.toString()}`)
   }
 
