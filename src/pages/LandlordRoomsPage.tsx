@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { motion } from 'motion/react'
-import { Plus, Edit, Trash2, Eye, Archive, Home, MoreVertical, MapPin, GraduationCap } from 'lucide-react'
+import { Plus, Edit, Trash2, Eye, Archive, Home, MoreVertical, MapPin, GraduationCap, RefreshCw } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
@@ -22,15 +22,18 @@ export default function LandlordRoomsPage() {
   const [data, setData] = useState<Page<RoomSummaryDTO> | null>(null)
   const [page, setPage] = useState(0)
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
 
   const load = async (p = page, signal?: AbortSignal) => {
     setLoading(true)
+    setError(null)
     try {
       const res = await roomService.myRooms(p, 10, { signal })
       if (signal?.aborted) return
       setData(res)
     } catch (e) {
       if (signal?.aborted) return
+      setError(getErrorMessage(e))
       toast.error(getErrorMessage(e))
     } finally {
       if (!signal?.aborted) setLoading(false)
@@ -107,6 +110,13 @@ export default function LandlordRoomsPage() {
           {Array.from({ length: 6 }).map((_, i) => (
             <Skeleton key={i} className="h-64 w-full" />
           ))}
+        </div>
+      ) : error ? (
+        <div className="flex flex-col items-center gap-3 rounded-xl border border-destructive/30 bg-destructive/5 p-6 text-center">
+          <p className="text-sm text-destructive">{error}</p>
+          <Button variant="outline" size="sm" onClick={() => load()}>
+            <RefreshCw className="mr-2 h-4 w-4" /> Reintentar
+          </Button>
         </div>
       ) : filteredRooms.length === 0 ? (
         <EmptyState

@@ -227,6 +227,7 @@ export default function RoomFormPage() {
                   placeholder="https://example.com/img1.jpg, https://example.com/img2.jpg"
                   onChange={(e) => handleImagesChange(e.target.value)}
                 />
+                <p className="text-xs text-muted-foreground">URLs de imágenes separadas por coma. Se mostrará preview automáticamente.</p>
               </div>
               {imageUrls.length > 0 && (
                 <div className="grid grid-cols-3 gap-2">

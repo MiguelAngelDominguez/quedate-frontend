@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
-import { SlidersHorizontal, Search, MapPin, ChevronDown, ChevronUp } from 'lucide-react'
+import { SlidersHorizontal, Search, MapPin, ChevronDown, ChevronUp, RefreshCw } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
@@ -55,32 +55,33 @@ export default function SearchPage() {
   }, [])
 
   // Fetch rooms
+  const load = async (signal?: AbortSignal) => {
+    setLoading(true)
+    setError(null)
+    try {
+      const res = await catalogService.searchRooms(
+        {
+          minPrice: minPrice || undefined,
+          maxPrice: maxPrice || undefined,
+          district: debouncedDistrict || undefined,
+          universityId: universityId || undefined,
+          page,
+          size,
+          sortBy,
+        },
+        { signal },
+      )
+      if (!signal?.aborted) setData(res)
+    } catch (e) {
+      if (!signal?.aborted) setError((e as Error).message)
+    } finally {
+      if (!signal?.aborted) setLoading(false)
+    }
+  }
+
   useEffect(() => {
     const controller = new AbortController()
-    const run = async () => {
-      setLoading(true)
-      setError(null)
-      try {
-        const res = await catalogService.searchRooms(
-          {
-            minPrice: minPrice || undefined,
-            maxPrice: maxPrice || undefined,
-            district: debouncedDistrict || undefined,
-            universityId: universityId || undefined,
-            page,
-            size,
-            sortBy,
-          },
-          { signal: controller.signal },
-        )
-        if (!controller.signal.aborted) setData(res)
-      } catch (e) {
-        if (!controller.signal.aborted) setError((e as Error).message)
-      } finally {
-        if (!controller.signal.aborted) setLoading(false)
-      }
-    }
-    run()
+    load(controller.signal)
     return () => controller.abort()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [queryString, debouncedDistrict])
@@ -170,8 +171,11 @@ export default function SearchPage() {
           )}
 
           {error && (
-            <div className="rounded-xl border border-destructive/30 bg-destructive/5 p-4 text-sm text-destructive">
-              {error}
+            <div className="flex flex-col items-center gap-3 rounded-xl border border-destructive/30 bg-destructive/5 p-6 text-center">
+              <p className="text-sm text-destructive">{error}</p>
+              <Button variant="outline" size="sm" onClick={() => load()}>
+                <RefreshCw className="mr-2 h-4 w-4" /> Reintentar
+              </Button>
             </div>
           )}
 

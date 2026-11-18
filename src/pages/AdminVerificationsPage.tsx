@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { motion } from 'motion/react'
-import { ShieldCheck, Check, X, FileText } from 'lucide-react'
+import { ShieldCheck, Check, X, FileText, RefreshCw } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb'
@@ -24,18 +24,21 @@ const VERIFICATION_STATUS_COLORS: Record<string, string> = {
 export default function AdminVerificationsPage() {
   const [items, setItems] = useState<VerificationResponseDTO[]>([])
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
   const [statusFilter, setStatusFilter] = useState<string>('all')
   const [modalOpen, setModalOpen] = useState(false)
   const [selectedAction, setSelectedAction] = useState<{ id: number; status: string } | null>(null)
 
   const load = async (signal?: AbortSignal) => {
     setLoading(true)
+    setError(null)
     try {
       const res = await verificationService.pending({ signal })
       if (signal?.aborted) return
       setItems(res)
     } catch (e) {
       if (signal?.aborted) return
+      setError(getErrorMessage(e))
       toast.error(getErrorMessage(e))
     } finally {
       if (!signal?.aborted) setLoading(false)
@@ -108,6 +111,13 @@ export default function AdminVerificationsPage() {
           {Array.from({ length: 3 }).map((_, i) => (
             <Skeleton key={i} className="h-40 w-full" />
           ))}
+        </div>
+      ) : error ? (
+        <div className="flex flex-col items-center gap-3 rounded-xl border border-destructive/30 bg-destructive/5 p-6 text-center">
+          <p className="text-sm text-destructive">{error}</p>
+          <Button variant="outline" size="sm" onClick={() => load()}>
+            <RefreshCw className="mr-2 h-4 w-4" /> Reintentar
+          </Button>
         </div>
       ) : filteredItems.length === 0 ? (
         <EmptyState

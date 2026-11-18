@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { motion } from 'motion/react'
-import { FileText, Calendar, MessageSquare, XCircle, Home as HomeIcon, Clock, CheckCircle2, X } from 'lucide-react'
+import { FileText, Calendar, MessageSquare, XCircle, Home as HomeIcon, Clock, CheckCircle2, X, RefreshCw } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb'
@@ -33,18 +33,21 @@ export default function MyRequestsPage() {
   const navigate = useNavigate()
   const [items, setItems] = useState<RentalRequestResponseDTO[]>([])
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
   const [statusFilter, setStatusFilter] = useState<string>('all')
   const [cancelModalOpen, setCancelModalOpen] = useState(false)
   const [selectedId, setSelectedId] = useState<number | null>(null)
 
   const load = async (signal?: AbortSignal) => {
     setLoading(true)
+    setError(null)
     try {
       const res = await trustService.myRentalRequests({ signal })
       if (signal?.aborted) return
       setItems(res)
     } catch (e) {
       if (signal?.aborted) return
+      setError(getErrorMessage(e))
       toast.error(getErrorMessage(e))
     } finally {
       if (!signal?.aborted) setLoading(false)
@@ -118,6 +121,13 @@ export default function MyRequestsPage() {
           {Array.from({ length: 3 }).map((_, i) => (
             <Skeleton key={i} className="h-40 w-full" />
           ))}
+        </div>
+      ) : error ? (
+        <div className="flex flex-col items-center gap-3 rounded-xl border border-destructive/30 bg-destructive/5 p-6 text-center">
+          <p className="text-sm text-destructive">{error}</p>
+          <Button variant="outline" size="sm" onClick={() => load()}>
+            <RefreshCw className="mr-2 h-4 w-4" /> Reintentar
+          </Button>
         </div>
       ) : filteredItems.length === 0 ? (
         <EmptyState

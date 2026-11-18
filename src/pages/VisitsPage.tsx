@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { motion } from 'motion/react'
-import { Calendar, Clock, Check, XCircle, Notebook, Plus } from 'lucide-react'
+import { Calendar, Clock, Check, XCircle, Notebook, Plus, RefreshCw } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
@@ -31,18 +31,21 @@ export default function VisitsPage() {
   const [scheduledAt, setScheduledAt] = useState('')
   const [notes, setNotes] = useState('')
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
   const [modalOpen, setModalOpen] = useState(false)
   const [selectedAction, setSelectedAction] = useState<{ id: number; status: string } | null>(null)
 
   const load = async (signal?: AbortSignal) => {
     if (!rid) return
     setLoading(true)
+    setError(null)
     try {
       const res = await trustService.listVisits(rid, { signal })
       if (signal?.aborted) return
       setItems(res)
     } catch (e) {
       if (signal?.aborted) return
+      setError(getErrorMessage(e))
       toast.error(getErrorMessage(e))
     } finally {
       if (!signal?.aborted) setLoading(false)
@@ -155,6 +158,13 @@ export default function VisitsPage() {
           {Array.from({ length: 3 }).map((_, i) => (
             <Skeleton key={i} className="h-24 w-full" />
           ))}
+        </div>
+      ) : error ? (
+        <div className="flex flex-col items-center gap-3 rounded-xl border border-destructive/30 bg-destructive/5 p-6 text-center">
+          <p className="text-sm text-destructive">{error}</p>
+          <Button variant="outline" size="sm" onClick={() => load()}>
+            <RefreshCw className="mr-2 h-4 w-4" /> Reintentar
+          </Button>
         </div>
       ) : items.length === 0 ? (
         <EmptyState
