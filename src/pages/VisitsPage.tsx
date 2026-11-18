@@ -197,7 +197,7 @@ export default function VisitsPage() {
                         {v.notes}
                       </p>
                     )}
-                    <Badge className={VISIT_STATUS_COLORS[v.status] ?? 'bg-gray-100 text-gray-700'}>
+                    <Badge className={VISIT_STATUS_COLORS[v.status] ?? 'bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300'}>
                       {v.status}
                     </Badge>
                   </div>

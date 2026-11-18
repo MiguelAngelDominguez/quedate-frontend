@@ -149,7 +149,7 @@ export default function MyRequestsPage() {
               <Card className="transition hover:shadow-md">
                 <CardHeader className="flex flex-row items-center justify-between pb-2">
                   <CardTitle className="text-lg">Solicitud #{r.id}</CardTitle>
-                  <Badge className={STATUS_COLORS[r.status] ?? 'bg-gray-100 text-gray-700'}>
+                  <Badge className={STATUS_COLORS[r.status] ?? 'bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300'}>
                     {STATUS_LABELS[r.status] ?? r.status}
                   </Badge>
                 </CardHeader>

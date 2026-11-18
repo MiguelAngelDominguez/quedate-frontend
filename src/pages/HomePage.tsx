@@ -78,7 +78,7 @@ export default function HomePage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             onSubmit={handleSearch}
-            className="mx-auto mt-8 flex max-w-2xl flex-col gap-3 rounded-2xl border bg-white/80 p-3 shadow-lg backdrop-blur-md sm:flex-row"
+            className="mx-auto mt-8 flex max-w-2xl flex-col gap-3 rounded-2xl border bg-white/80 p-3 shadow-lg backdrop-blur-md sm:flex-row dark:bg-card/80"
           >
             <div className="relative flex-1">
               <MapPin className="absolute left-3 top-3.5 h-5 w-5 text-muted-foreground" />
@@ -110,7 +110,7 @@ export default function HomePage() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.5 + i * 0.1 }}
                   whileHover={{ y: -6, scale: 1.02 }}
-                  className="rounded-xl border bg-white/80 p-4 shadow-sm backdrop-blur transition-shadow hover:shadow-md"
+                  className="rounded-xl border bg-white/80 p-4 shadow-sm backdrop-blur transition-shadow hover:shadow-md dark:bg-card/80"
                 >
                   <div className={cn('mb-2 inline-flex rounded-lg p-2', s.bg)}>
                     <Icon className={cn('h-5 w-5', s.color)} />
@@ -248,7 +248,7 @@ export default function HomePage() {
             <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <Button
                 size="lg"
-                className="bg-white text-primary shadow-md hover:bg-primary/10"
+                className="bg-white text-primary shadow-md hover:bg-primary/10 dark:bg-card dark:text-primary"
                 onClick={() => navigate('/register')}
               >
                 Crear cuenta gratis

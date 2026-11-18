@@ -160,7 +160,7 @@ export default function LandlordRequestsPage() {
                       <p className="text-sm text-muted-foreground">Estudiante #{r.studentId}</p>
                     </div>
                   </div>
-                  <Badge className={STATUS_COLORS[r.status] ?? 'bg-gray-100 text-gray-700'}>
+                  <Badge className={STATUS_COLORS[r.status] ?? 'bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300'}>
                     {STATUS_LABELS[r.status] ?? r.status}
                   </Badge>
                 </CardHeader>

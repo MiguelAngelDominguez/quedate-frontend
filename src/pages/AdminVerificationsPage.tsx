@@ -147,7 +147,7 @@ export default function AdminVerificationsPage() {
                       <p className="text-sm text-muted-foreground">Arrendador #{v.landlordId}</p>
                     </div>
                   </div>
-                  <Badge className={VERIFICATION_STATUS_COLORS[v.status] ?? 'bg-gray-100 text-gray-700'}>
+                  <Badge className={VERIFICATION_STATUS_COLORS[v.status] ?? 'bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300'}>
                     {v.status}
                   </Badge>
                 </CardHeader>

@@ -25,7 +25,7 @@ export function RoomCard({ room }: { room: RoomSummaryDTO }) {
                 Sin imagen
               </div>
             )}
-            <Badge className="absolute right-3 top-3 bg-white/90 text-foreground shadow-sm backdrop-blur-sm">
+            <Badge className="absolute right-3 top-3 bg-white/90 text-foreground shadow-sm backdrop-blur-sm dark:bg-card/90">
               S/ {room.price}
             </Badge>
           </div>
