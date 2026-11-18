@@ -256,7 +256,7 @@ export default function HomePage() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white/40 text-white hover:bg-white/10"
+                className="border-white/40 bg-transparent text-white hover:bg-white/10 dark:text-white"
                 onClick={() => navigate('/rooms')}
               >
                 Explorar habitaciones
