@@ -8,25 +8,25 @@ Frontend web de la plataforma **Quédate** (CS2031 — Desarrollo Basado en Plat
 
 ## Tabla de contenidos
 
-1. [Descripción del proyecto](#1-descripción-del-proyecto)
-2. [Integrantes y participación](#2-integrantes-y-participación)
-3. [Problema y solución](#3-problema-y-solución)
-4. [Objetivos y alcance](#4-objetivos-y-alcance)
-5. [Arquitectura del frontend](#5-arquitectura-del-frontend)
-6. [Stack tecnológico](#6-stack-tecnológico)
-7. [Diseño y sistema visual](#7-diseño-y-sistema-visual)
-8. [Módulos y páginas](#8-módulos-y-páginas)
-9. [Componentes reutilizables](#9-componentes-reutilizables)
-10. [Servicios y comunicación con la API](#10-servicios-y-comunicación-con-la-api)
-11. [Estado y gestión de datos](#11-estado-y-gestión-de-datos)
-12. [Autenticación y seguridad](#12-autenticación-y-seguridad)
-13. [Mapas e integración externa](#13-mapas-e-integración-externa)
-14. [Testing](#14-testing)
-15. [Estructura de carpetas](#15-estructura-de-carpetas)
-16. [Ejecución y desarrollo local](#16-ejecución-y-desarrollo-local)
-17. [Build y deployment](#17-build-y-deployment)
-18. [Verificación y calidad](#18-verificación-y-calidad)
-19. [Repositorios](#19-repositorios)
+1. [Descripción del proyecto](#1-descripcion-del-proyecto)
+2. [Integrantes y participación](#2-integrantes-y-participacion)
+3. [Repositorios](#3-repositorios)
+4. [Problema y solución](#4-problema-y-solucion)
+5. [Objetivos y alcance](#5-objetivos-y-alcance)
+6. [Arquitectura del frontend](#6-arquitectura-del-frontend)
+7. [Stack tecnológico](#7-stack-tecnologico)
+8. [Diseño y sistema visual](#8-diseo-y-sistema-visual)
+9. [Módulos y páginas](#9-modulos-y-paginas)
+10. [Componentes reutilizables](#10-componentes-reutilizables)
+11. [Servicios y comunicación con la API](#11-servicios-y-comunicacion-con-la-api)
+12. [Estado y gestión de datos](#12-estado-y-gestion-de-datos)
+13. [Autenticación y seguridad](#13-autenticacion-y-seguridad)
+14. [Mapas e integración externa](#14-mapas-e-integracion-externa)
+15. [Testing](#15-testing)
+16. [Estructura de carpetas](#16-estructura-de-carpetas)
+17. [Ejecución y desarrollo local](#17-ejecucion-y-desarrollo-local)
+18. [Build y deployment](#18-build-y-deployment)
+19. [Verificación y calidad](#19-verificacion-y-calidad)
 20. [Licencia](#20-licencia)
 
 ---
@@ -55,7 +55,18 @@ El frontend es la capa de presentación del sistema: una Single Page Application
 
 ---
 
-## 3. Problema y solución
+## 3. Repositorios
+
+| Componente | Repositorio | Deploy |
+|---|---|---|
+| **Backend** (Spring Boot) | [MiguelAngelDominguez/quedate-backend](https://github.com/MiguelAngelDominguez/quedate-backend) | https://quedate-backend.onrender.com |
+| **Frontend Web** (React) | [MiguelAngelDominguez/quedate-frontend](https://github.com/MiguelAngelDominguez/quedate-frontend) | https://quedate-frontend.vercel.app |
+
+---
+
+---
+
+## 4. Problema y solución
 
 ### Problema
 Buscar alojamiento cerca de una universidad resulta complicado para un estudiante que no conoce la zona. Las ofertas suelen publicarse en medios generales o informales (redes sociales, grupos de WhatsApp), lo que genera:
@@ -82,7 +93,7 @@ Quédate centraliza la búsqueda y la interacción con el arrendador en una úni
 
 ---
 
-## 4. Objetivos y alcance
+## 5. Objetivos y alcance
 
 ### Objetivos
 - Ofrecer una experiencia de usuario fluida, responsive y accesible para buscar y gestionar alojamiento.
@@ -96,7 +107,7 @@ Quédate centraliza la búsqueda y la interacción con el arrendador en una úni
 
 ---
 
-## 5. Arquitectura del frontend
+## 6. Arquitectura del frontend
 
 ### 4.1 Patrón general
 
@@ -158,7 +169,7 @@ Quédate centraliza la búsqueda y la interacción con el arrendador en una úni
 
 ---
 
-## 6. Stack tecnológico
+## 7. Stack tecnológico
 
 ### Core
 
@@ -216,7 +227,7 @@ Quédate centraliza la búsqueda y la interacción con el arrendador en una úni
 
 ---
 
-## 7. Diseño y sistema visual
+## 8. Diseño y sistema visual
 
 ### 6.1 Paleta de colores
 
@@ -289,7 +300,7 @@ Quédate centraliza la búsqueda y la interacción con el arrendador en una úni
 
 ---
 
-## 8. Módulos y páginas
+## 9. Módulos y páginas
 
 ### 7.1 Tabla de páginas
 
@@ -383,7 +394,7 @@ Quédate centraliza la búsqueda y la interacción con el arrendador en una úni
 
 ---
 
-## 9. Componentes reutilizables
+## 10. Componentes reutilizables
 
 ### 8.1 UI (shadcn/ui — basados en Radix)
 
@@ -453,7 +464,7 @@ Quédate centraliza la búsqueda y la interacción con el arrendador en una úni
 
 ---
 
-## 10. Servicios y comunicación con la API
+## 11. Servicios y comunicación con la API
 
 ### 9.1 Cliente HTTP (`api.ts`)
 
@@ -487,7 +498,7 @@ Quédate centraliza la búsqueda y la interacción con el arrendador en una úni
 
 ---
 
-## 11. Estado y gestión de datos
+## 12. Estado y gestión de datos
 
 ### 10.1 Zustand (client state)
 
@@ -522,7 +533,7 @@ Quédate centraliza la búsqueda y la interacción con el arrendador en una úni
 
 ---
 
-## 12. Autenticación y seguridad
+## 13. Autenticación y seguridad
 
 ### 11.1 Flujo de autenticación
 
@@ -554,7 +565,7 @@ Quédate centraliza la búsqueda y la interacción con el arrendador en una úni
 
 ---
 
-## 13. Mapas e integración externa
+## 14. Mapas e integración externa
 
 ### 12.1 Leaflet (`RoomMap.tsx`)
 
@@ -571,7 +582,7 @@ Quédate centraliza la búsqueda y la interacción con el arrendador en una úni
 
 ---
 
-## 14. Testing
+## 15. Testing
 
 ### 13.1 Configuración
 
@@ -599,7 +610,7 @@ npm run test:ui       # UI interactiva de Vitest (si configurado)
 
 ---
 
-## 15. Estructura de carpetas
+## 16. Estructura de carpetas
 
 ```
 quedate-frontend/
@@ -645,7 +656,7 @@ quedate-frontend/
 
 ---
 
-## 16. Ejecución y desarrollo local
+## 17. Ejecución y desarrollo local
 
 ### 15.1 Requisitos
 
@@ -698,7 +709,7 @@ El servidor de desarrollo corre en `http://localhost:3000` con HMR (Hot Module R
 
 ---
 
-## 17. Build y deployment
+## 18. Build y deployment
 
 ### 16.1 Build de producción
 
@@ -731,7 +742,7 @@ Sirve el build de producción en `http://localhost:4173`.
 
 ---
 
-## 18. Verificación y calidad
+## 19. Verificación y calidad
 
 ### 17.1 Checks realizados
 
@@ -752,15 +763,6 @@ Sirve el build de producción en `http://localhost:4173`.
 - Dashboard arrendador (stats, gestión): ✅
 - Solicitudes y visitas: ✅
 - Verificaciones (admin): ✅
-
----
-
-## 19. Repositorios
-
-| Componente | Repositorio | Deploy |
-|---|---|---|
-| **Backend** (Spring Boot) | [MiguelAngelDominguez/quedate-backend](https://github.com/MiguelAngelDominguez/quedate-backend) | https://quedate-backend.onrender.com |
-| **Frontend Web** (React) | [MiguelAngelDominguez/quedate-frontend](https://github.com/MiguelAngelDominguez/quedate-frontend) | https://quedate-frontend.vercel.app |
 
 ---
 
